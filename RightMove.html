@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        select{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+    <script>
+        var heroNode;
+        var boxNode;
+        function rightMove() {
+            heroNode = document.getElementById("hero");
+            boxNode = document.getElementById("box");
+            for(var i=0;i < heroNode.options.length; i+=1) {
+                if(heroNode.options[i].selected) {
+                    boxNode.appendChild(heroNode.options[i]);
+                    i-=1;
+                }
+            }
+        }
+        function rightAllMove() {
+            heroNode = document.getElementById("hero");
+            boxNode = document.getElementById("box");
+            for(var i=0;i < heroNode.options.length; i+=1) {
+                boxNode.appendChild(heroNode.options[i]);
+                i-=1;
+            }
+        }
+        function leftMove() {
+            heroNode = document.getElementById("hero");
+            boxNode = document.getElementById("box");
+            for(var i=0;i < boxNode.options.length; i+=1) {
+                if(boxNode.options[i].selected) {
+                    heroNode.appendChild(boxNode.options[i]);
+                    i-=1;
+                }
+            }
+        }
+        function leftAllMove() {
+            heroNode = document.getElementById("hero");
+            boxNode = document.getElementById("box");
+            for(var i=0;i < boxNode.options.length; i+=1) {
+                heroNode.appendChild(boxNode.options[i]);
+                i-=1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <select name="hero" id="hero" multiple>
+        <option value="1">关羽</option>
+        <option value="2">赵云</option>
+        <option value="3">马超</option>
+        <option value="4">张飞</option>
+        <option value="5">黄忠</option>
+    </select>
+    <input type="button" value="右移" onclick="rightMove()">
+    <input type="button" value="全部右移" onclick="rightAllMove()">
+    <input type="button" value="左移" onclick="leftMove()">
+    <input type="button" value="全部左移" onclick="leftAllMove()">
+    <select name="box" id="box" multiple></select>
+</body>
+</html>

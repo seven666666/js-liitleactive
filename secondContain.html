@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var sheng;
+        var shi;
+        var shiArrays = [["广州","佛山","深圳"],["成都","绵阳","自贡"],["大理","昆明","丽江"]];
+        window.onload = function () {
+            sheng = document.getElementById("sheng");
+            shi = document.getElementById("shi");
+        }
+        function changeCity() {
+            /*shi.innerHTML="";*/
+            shi.length = 0;
+            for(var i=0;i<shiArrays[sheng.value-1].length;i+=1) {
+                var opri = document.createElement("option");
+                opri.appendChild(document.createTextNode((shiArrays[sheng.value-1])[i]));
+                opri.setAttribute("value", "100" + i);
+                shi.appendChild(opri);
+            }
+        }
+    </script>
+</head>
+<body>
+    <span>省：</span>
+<select name="sheng" id="sheng" onchange="changeCity()">
+    <option>请选择</option>
+    <option value="1">广东省</option>
+    <option value="2">四川省</option>
+    <option value="3">云南省</option>
+</select>
+<span>市：</span>
+<select name="shi" id="shi">
+    <option>请先选择省份</option>
+</select>
+</body>
+</html>
